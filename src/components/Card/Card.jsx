@@ -1,0 +1,51 @@
+import React from 'react';
+import Spinner from '../Spinner/Spinner';
+import image from '../../assets/image/sunset.jpg'
+function Card({ loadingData, showData, weather, forecast }) {
+    let today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+    let date = day + '/' + month + '/' + year;
+    let url = '';
+    let iconUrl = '';
+    if (loadingData) {
+        return <Spinner />;
+    }
+    if (showData) {
+        url = 'http://openweathermap.org/img/w/';
+        iconUrl = url + weather.weather[0].icon + '.png'
+    }
+    return (
+
+        <div className='mt-5'>
+            {showData === true ? (
+                <div className='container'>
+                    <div className='card mb-3 mx-auto bg-dark text-light'>
+                        <div className='row g-0'>
+                            <div className='col-md-4'>
+                                <h3 className='card-title'>{weather.name}</h3>
+                                <p className='card-date'>{date}</p>
+                                <h1 className='card-temp'>{(weather.main.temp - 273.15).toFixed(1)}°C</h1>
+                                <p className='card-desc'><img src={iconUrl} alt="icon" />{weather.weather[0].description}</p>
+                                <img style={{height:'300px'}} src={image} alt="image" className='img-fluid rounded-start' />
+                            </div>
+                            <div className='col-md-8'>
+                                <div className='card-body text-start mt-2 '>
+                                     <h5 className='card-text'>{(weather.main.temp - 273.15).toFixed(1)} °C : دمای هوا </h5>
+                                     <h5 className='card-text'>{weather.main.humidity} % : رطوبت هوا </h5>
+                                     <h5 className='card-text'>{weather.wind.speed} m/s : سرعت باد</h5>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ) : (
+                <h2 className="text-light">Sin datos</h2>
+            )
+            }
+        </div >
+    );
+}
+
+export default Card;

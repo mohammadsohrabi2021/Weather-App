@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Card from '../Card/Card';
 import Form from '../Form/Form';
 
 function WeatherPanel(props) {
@@ -7,12 +8,12 @@ function WeatherPanel(props) {
     let urlForecast = 'https://api.openweathermap.org/data/2.5/forecast?appid=39581fb308bc3c2afd417eb797c18791&lang=fa';
     const [weather, setWeather] = useState([])
     const [forecast, setForecast] = useState([])
-    const [loding, setLoding] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [show, setShow] = useState(false)
     const [location, setLocation] = useState('')
 
     const getLocation = async (loc) => {
-        setLoding(true);
+        setLoading(true);
         setLocation(loc);
         // weather
         urlWeather = urlWeather + cityUrl + loc;
@@ -24,7 +25,7 @@ function WeatherPanel(props) {
             console.log(weatherData);
         }).catch(error => {
             console.error();
-            setLoding(false)
+            setLoading(false)
             setShow(false)
         })
         // Forecast
@@ -35,11 +36,11 @@ function WeatherPanel(props) {
         }).then(forecastData => {
             setForecast(forecastData)
             console.log(forecastData);
-            setLoding(false)
+            setLoading(false)
             setShow(true)
         }).catch(error => {
             console.error();
-            setLoding(false)
+            setLoading(false)
             setShow(false)
         })
     }
@@ -48,6 +49,13 @@ function WeatherPanel(props) {
         <div>
              <Form
                   newLocation ={getLocation}
+             />
+             <Card
+                showData ={show}
+                loadingData ={loading}
+                weather={weather}
+                forecast={forecast}
+               
              />
         </div>
     );

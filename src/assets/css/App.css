@@ -8,3 +8,26 @@ body{
 .input-group{
   width: 60%;
 }
+.card{
+  max-width: 60%;
+}
+.card-title{
+  position: absolute;
+  padding: 20px;
+}
+.card-date{
+  position: absolute;
+  padding: 20px;
+  margin-top:40px ;
+}
+.card-temp{
+  position: absolute;
+  padding-left: 20px;
+  margin-top: 180px;
+  font-size: 50px;
+}
+.card-desc{
+  position: absolute;
+  padding-left: 20px;
+  margin-top: 240px;
+}
