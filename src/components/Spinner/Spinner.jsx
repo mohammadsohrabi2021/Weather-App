@@ -1,14 +1,10 @@
 import React from 'react';
-import './Spinner'
+import './Spinner.css'
 function Spinner() {
     return (
-        <div class="loadingio-spinner-ripple-lbm6ypg68lp">
-            <div class="ldio-3rix06h11o7">
-                <div></div>
-                <div></div>
-            </div>
+        <div className='spinner'>
+            <h5>....در حال دریافت اطلاعات مورد نظر شما </h5>
         </div>
-
     );
 }
 
