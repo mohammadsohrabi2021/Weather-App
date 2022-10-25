@@ -9,13 +9,16 @@ function Card({ loadingData, showData, weather, forecast }) {
     let month = today.getMonth();
     let year = today.getFullYear();
     let date = day + '/' + month + '/' + year;
-
+    let url = '';
     let iconUrl = '';
 
     if (loadingData) {
         return <Spinner />;
     }
-
+    if (showData) {
+        url  = 'http://openweathermap.org/img/w/';
+        iconUrl = url + weather.weather[0].icon + '.png';
+    }
     return (
 
         <div className='mt-5'>
@@ -37,7 +40,7 @@ function Card({ loadingData, showData, weather, forecast }) {
                                     <h5 className='card-text'>{weather.wind.speed} m/s : سرعت باد</h5>
                                 </div>
                                 <hr />
-                               <CardList showData={showData} weather={weather} forecast={forecast} iconUrl={iconUrl}/>
+                                <CardList url={url} forecast={forecast}/>
                             </div>
                         </div>
                     </div>
