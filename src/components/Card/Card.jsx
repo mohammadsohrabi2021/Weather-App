@@ -22,7 +22,7 @@ function Card({ loadingData, showData, weather, forecast }) {
         return <Spinner />;
     }
     if (showData) {
-        url = 'http://openweathermap.org/img/w/';
+        url  = 'http://openweathermap.org/img/w/';
         iconUrl = url + weather.weather[0].icon + '.png';
 
         iconUrl3 = url + forecast.list[1].weather[0].icon + '.png';
