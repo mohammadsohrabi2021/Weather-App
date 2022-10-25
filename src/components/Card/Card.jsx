@@ -1,6 +1,7 @@
 import React from 'react';
 import Spinner from '../Spinner/Spinner';
 import image from '../../assets/image/sunset.jpg'
+import './Card.css'
 function Card({ loadingData, showData, weather, forecast }) {
     let today = new Date();
     let day = today.getDate();
@@ -40,21 +41,21 @@ function Card({ loadingData, showData, weather, forecast }) {
                 <div className='container'>
                     <div className='card mb-3 mx-auto bg-dark text-light'>
                         <div className='row g-0'>
-                            <div className='col-md-4'>
+                            <div className='col-md-5'>
                                 <h3 className='card-title'>{weather.name}</h3>
                                 <p className='card-date'>{date}</p>
                                 <h1 className='card-temp'>{(weather.main.temp - 273.15).toFixed(1)}°C</h1>
                                 <p className='card-desc'><img src={iconUrl} alt="icon" />{weather.weather[0].description}</p>
-                                <img style={{ height: '300px' }} src={image} alt="image" className='img-fluid rounded-start' />
+                                <img  src={image} alt="image" className='img-fluid rounded-start image' />
                             </div>
-                            <div className='col-md-8'>
+                            <div className='col-md-7'>
                                 <div className='card-body text-start mt-2 '>
                                     <h5 className='card-text'>{(weather.main.temp - 273.15).toFixed(1)} °C : دمای هوا </h5>
                                     <h5 className='card-text'>{weather.main.humidity} % : رطوبت هوا </h5>
                                     <h5 className='card-text'>{weather.wind.speed} m/s : سرعت باد</h5>
                                 </div>
                                 <hr />
-                                <div className='row mt-4'>
+                                {/* <div className='row mt-4'>
                                     <div className='col'>
                                         <p>{forecastDate3}h</p>
                                         <p className='description'><img src={iconUrl3} alt="icon" />{forecast.list[1].weather[0].description}</p>
@@ -70,7 +71,7 @@ function Card({ loadingData, showData, weather, forecast }) {
                                         <p className='description'><img src={iconUrl9} alt="icon" />{forecast.list[3].weather[0].description}</p>
                                         <p className='temp'>{(forecast.list[3].main.temp -273.15).toFixed(1)} °C</p>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

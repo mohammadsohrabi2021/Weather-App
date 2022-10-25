@@ -1,0 +1,7 @@
+.image{
+    height: 350px;
+}
+.card-text{
+    display: flex;
+    flex-direction: row-reverse;
+}
