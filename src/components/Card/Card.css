@@ -4,4 +4,5 @@
 .card-text{
     display: flex;
     flex-direction: row-reverse;
+    font-size: 12px;
 }
